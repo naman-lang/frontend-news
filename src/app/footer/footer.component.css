@@ -1,0 +1,30 @@
+.footer {
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f5f5f5; */
+    background-color:  #33383b;
+    font-size: 14px;
+    height: 30px;
+    
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .spacer2 {
+    width: 20px;
+  }
+  
+  .text-muted {
+    color: #999;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  

@@ -1,0 +1,27 @@
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    color: black;
+    cursor: pointer;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+ 
+  
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .spacer2 {
+    display: inline-block;
+    width: 50px;
+  }
+  .username-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+  
+
+  

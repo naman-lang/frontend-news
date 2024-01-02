@@ -1,0 +1,44 @@
+.app-navbar {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000; 
+}
+.spacer {
+    margin-left: 20px;
+  }
+  
+  mat-card-header {
+    display: block;
+    padding: 50px;
+    text-align: center;
+    font-weight: bolder;
+    /* color: white;
+    background-color: #333545; */
+  }
+  .user-card{
+    background-color: rgb(203, 221, 228);
+    position: relative; 
+    max-height: 500px; 
+    overflow-y: auto; 
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 50%;
+  }
+  .search-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ok-icon{
+    cursor: pointer;
+    font-weight: bolder;
+    color: green;
+  }
+  .cancel-icon {
+    cursor: pointer;
+    font-weight: bolder;
+    color: red;
+  }

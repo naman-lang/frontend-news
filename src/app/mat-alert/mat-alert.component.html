@@ -1,0 +1,15 @@
+<div class="alert">
+    <mat-icon aria-hidden="false" (click)="closeAlert()"> close </mat-icon>
+    <div *ngIf="processSuccess; else failIcon" class="center-content">
+        <mat-icon color="primary" class="large-icon success-icon">check_circle</mat-icon>
+        <p style="color: green;">{{ message }}</p>
+        <!-- <button mat-raised-button color="primary" (click)="viewBooking()">View Booking</button> -->
+    </div>
+    <ng-template #failIcon>
+        <div class="center-content">
+            <mat-icon class="large-icon error-icon">error_outline</mat-icon>
+            <p style="color: red;">{{ message }}</p>
+            <button mat-raised-button color="warn" (click)="tryAgain()">Try Again</button>
+        </div>
+    </ng-template>
+</div>

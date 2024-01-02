@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Delete Stock</h2>
+<div mat-dialog-content>
+  Are you sure you want to delete "{{ data.res }}"?
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <span class="spacer"></span>
+  <button mat-button color="warn" (click)="onDeleteClick()">Delete</button>
+</div>

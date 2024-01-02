@@ -1,0 +1,111 @@
+<app-navbar class="app-navbar"></app-navbar>
+<div class="movie-card">
+<!-- <img src="assets/slider2.png" alt="slider" width="100%" style="cursor: pointer;"> -->
+<div class="text-overlay">
+    <h2> <span style="color: rgb(12, 248, 248); font-weight: bold;"><strong>news</strong></span>|app</h2>
+  </div>
+</div>
+<mat-card class="movie-card">
+    <mat-card-content>
+        <div class="search-center">
+        <mat-form-field class="rounded-search">
+            <mat-label>search news</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Enter your search text here" #input>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+
+        </div>
+        <div class="card-header" *ngIf="loading">
+            <h5><b>loading news data in process...</b></h5>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+        <table mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let i = statusS">{{ i + 1 }}</td>
+              </ng-container>
+              <ng-container matColumnDef="totalResults">
+                <th mat-header-cell *matHeaderCellDef>TotalResults</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.totalResults }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="articles">
+                <th mat-header-cell *matHeaderCellDef>Articles</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.articles }}</td>
+            </ng-container>
+            <ng-container matColumnDef="source">
+                <th mat-header-cell *matHeaderCellDef>Source</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.source }}</td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.name }}</td>
+            </ng-container>
+            <ng-container matColumnDef="author">
+                <th mat-header-cell *matHeaderCellDef>Author</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.author }}</td>
+            </ng-container>
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef>Title</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.title }}</td>
+            </ng-container>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef>Description</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.description }}</td>
+            </ng-container>
+            <ng-container matColumnDef="content">
+                <th mat-header-cell *matHeaderCellDef>Content</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.content }}</td>
+            </ng-container>
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef>Category</th>
+              <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                >{{ news.category }}</td>
+              </ng-container>
+               <ng-container matColumnDef="publishedAt">
+                <th mat-header-cell *matHeaderCellDef>PublishedAt</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >{{ news.publishedAt }}</td>
+                 </ng-container>
+                 <ng-container matColumnDef="url">
+                  <th mat-header-cell *matHeaderCellDef>Url</th>
+                  <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                    >{{ news.url }}</td>
+                   </ng-container>
+
+                   <ng-container matColumnDef="urlToImage">
+                    <th mat-header-cell *matHeaderCellDef>UrlToImage</th>
+                    <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                      >{{ news.urlToImage }}</td>
+                     </ng-container>
+
+
+            <ng-container matColumnDef="whishlist">
+                <th mat-header-cell *matHeaderCellDef>Whishlist</th>
+                <td mat-cell *matCellDef="let news" class="view-details" matTooltip="view details"
+                  >
+                  <button mat-raised-button color="primary" (click)="addwhishlist(news)">
+                    Add
+                </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the search "{{input.value}}"</td>
+            </tr>
+        </table>
+        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+    </mat-card-content>
+</mat-card>
+

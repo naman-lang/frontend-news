@@ -1,0 +1,58 @@
+<div class="login-container">
+    <mat-card class="custom-card">
+      <div class="card-background">
+      <mat-card-header>
+         <div>
+          <span style="color: rgb(107, 160, 160); font-weight: bold;">news</span>|app
+        </div>
+        <div class="card-header" *ngIf="loading">
+          <h5 style="color: green;"><b>please wait...</b></h5>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+        <mat-card-title>Login</mat-card-title>
+        <div *ngIf="loginSuccess !== null" [ngClass]="{'error-message': !loginSuccess, 'success-message': loginSuccess}"
+          class="message">
+          {{ loginSuccess ? 'login success!' : errorMsg }}
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" placeholder="Enter your username" required />
+            <mat-error *ngIf="loginForm.get('username').hasError('required')">
+              *Username is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('username').hasError('pattern')">
+              *leading or trailing whitespaces not allowed!
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" [type]="hidePassword?'password':'text'" placeholder="Enter your password"
+              required />
+            <button mat-icon-button matSuffix (click)="hidePassword=!hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{hidePassword?'visibility_off':'visibility'}}</mat-icon>
+            </button>
+            <!-- <mat-icon matSuffix class="toggle-icon" (click)="togglePasswordVisibility()">visibility</mat-icon> -->
+            <mat-error *ngIf="loginForm.get('password').hasError('required')">
+              *Password is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password').hasError('pattern')">
+              *leading or trailing whitespaces not allowed!
+            </mat-error>
+          </mat-form-field>
+          <div class="buttons">
+            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+              Login
+            </button>
+          </div>
+        </form>
+        <div class="links">
+          <a routerLink="/register">Register Now</a>
+          <a routerLink="/reset">Forgot Password</a>
+        </div>
+      </mat-card-content>
+      </div>
+    </mat-card>
+  </div>

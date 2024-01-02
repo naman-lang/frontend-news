@@ -1,0 +1,81 @@
+.app-navbar {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000; 
+}
+.red {
+    color: red;
+  }
+  .spacer {
+    margin-left: 20px;
+  }
+  .edit-container {
+    display: flex;
+    align-items: center;
+  }
+  /* mat-card{
+    background: linear-gradient(to bottom, #dad5d5, #bddef5);
+  } */
+  .movie-card{
+    background-color: rgb(203, 221, 228);
+    position: relative;
+    max-height: 500px; 
+    overflow-y: auto;  
+  }
+ 
+  
+  .text-overlay {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .text-overlay h2 {
+    font-size: 24px;
+    padding: 10px;
+  }
+  
+  .edit-input {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  .ok-icon{
+    cursor: pointer;
+    font-weight: bolder;
+    color: green;
+  }
+  .cancel-icon {
+    cursor: pointer;
+    font-weight: bolder;
+    color: red;
+  }
+  
+  .spacer {
+    display: inline-block;
+    width: 8px;
+  }
+  .view-details{
+    cursor: pointer;
+    font-weight: bolder;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 50%;
+  }
+  .search-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* th{
+    color:red;
+    background-color: rgb(58, 91, 161);
+  }
+   */
+  
+  

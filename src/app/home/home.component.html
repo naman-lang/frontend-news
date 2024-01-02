@@ -1,0 +1,17 @@
+<div class="container" *ngIf="loaded">
+    <div class="box-background">
+      <h1>Welcome to <span style="color:rgb(107, 160, 160)"><strong>News</strong></span>|App</h1>
+      <p>Login or Signup to continue</p>
+      <div class="button-container">
+        <button mat-raised-button color="primary" (click)="loginHandle()">Login</button>
+        <span class="spacer"></span>
+        <button mat-raised-button color="accent" (click)="signupHandle()">Signup</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="loading-spinner" *ngIf="!loaded">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+  
+  
